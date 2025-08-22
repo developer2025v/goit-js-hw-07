@@ -1,48 +1,34 @@
-const ulElem = document.querySelector('.gallery');
-
 const images = [
   {
-    url: "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?dpr=2&h=750&w=1260",
-    alt: "White and Black Long Fur Cat",
+    url: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg",
+    alt: "Team planning with sticky notes",
   },
   {
-    url: "https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?dpr=2&h=750&w=1260",
-    alt: "Orange and White Koi Fish Near Yellow Koi Fish",
+    url: "https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg",
+    alt: "Hand holding light bulb",
   },
   {
-    url: "https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?dpr=2&h=750&w=1260",
-    alt: "Group of Horses Running",
+    url: "https://images.pexels.com/photos/1124463/pexels-photo-1124463.jpeg",
+    alt: "Smartphone with coffee cup",
   },
   {
-    url: "https://cdn.pixabay.com/photo/2019/05/17/09/27/the-alps-4209272_1280.jpg",
-    alt: "Alpine Spring Meadows",
+    url: "https://images.pexels.com/photos/245208/pexels-photo-245208.jpeg",
+    alt: "Modern meeting room",
   },
   {
-    url: "https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255_1280.jpg",
-    alt: "Nature Landscape",
+    url: "https://images.pexels.com/photos/2507015/pexels-photo-2507015.jpeg",
+    alt: "Creative open space",
   },
   {
-    url: "https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843_1280.jpg",
-    alt: "Lighthouse Coast Sea",
-  }
+    url: "https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg",
+    alt: "Open office working space",
+  },
 ];
 
+const galleryEl = document.querySelector(".gallery");
 
-const res = images.map(el => {
-  const imgElem = document.createElement('li');
-  const image = document.createElement('img');
-  image.src = el.url;
-  image.alt = el.alt;
-  imgElem.appendChild(image);
-  return imgElem;
-})
+const markup = images
+  .map(({ url, alt }) => `<li><img src="${url}" alt="${alt}"></li>`)
+  .join("");
 
-ulElem.append(...res);
-
-const liElem = document.querySelectorAll('li');
-console.log(liElem);
-
-liElem.forEach(item => {
-  item.classList.add('js-list-item');
-})
-
+galleryEl.insertAdjacentHTML("beforeend", markup);
